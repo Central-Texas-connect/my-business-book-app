@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Smarter Home Improvements — My Business Book</title>
+<meta name="description" content="Smarter Home Improvements — My Business Book. Jobs, customers, estimates, invoices, payroll and more for Ernest Lynn Cope, Killeen, Texas. Works offline.">
+<meta name="theme-color" content="#0e1c38">
+<meta name="color-scheme" content="light">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Business Book">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preload" href="assets/logo-800.png" as="image">
+<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<a class="skip" href="#view">Skip to content</a>
+
+<!-- ============ COVER ============ -->
+<section id="cover-screen" class="cover-screen" aria-label="Book cover">
+  <div class="book3d">
+    <div class="first-page" aria-hidden="true">
+      <img src="assets/logo-800.png" alt="" width="800" height="350">
+      <p class="fp-title">Welcome back, Lynn.</p>
+      <p class="fp-sub">One job, one plan, one day at a time.</p>
+    </div>
+    <div class="cover-board">
+      <div class="cover-front">
+        <div class="spine-hinge" aria-hidden="true"></div>
+        <div class="stitch" aria-hidden="true"></div>
+        <span class="corner tl" aria-hidden="true"></span><span class="corner tr" aria-hidden="true"></span><span class="corner bl" aria-hidden="true"></span><span class="corner br" aria-hidden="true"></span>
+        <div class="cover-content">
+          <p class="foil cover-kicker">Smarter Home Improvements</p>
+          <h1 class="foil cover-title">My Business Book</h1>
+          <div class="rule" aria-hidden="true"><span></span>✦<span></span></div>
+          <div class="logo-plate">
+            <img src="assets/logo-800.png" alt="Smarter Home Improvements logo — One Call. Every Fix. Done Smarter." width="800" height="350" id="cover-logo">
+          </div>
+          <p class="foil cover-owner">Ernest Lynn Cope</p>
+          <p class="cover-meta">Owner · Killeen, Texas · <a href="tel:2543380005">254-338-0005</a></p>
+          <button type="button" id="open-book" class="btn-open"><span>Open My Book</span></button>
+          <button type="button" id="cover-install" class="btn-install" hidden>Install on home screen</button>
+        </div>
+      </div>
+      <div class="cover-inside" aria-hidden="true"></div>
+    </div>
+  </div>
+  <p id="offline-note" class="offline-note" hidden>Offline — your book still works and saves on this phone.</p>
+</section>
+
+<!-- ============ PIN LOCK ============ -->
+<section id="lock" class="lock" hidden role="dialog" aria-modal="true" aria-labelledby="lock-title">
+  <div class="lock-card">
+    <img src="icons/icon-192.png" alt="" class="lock-logo" width="72" height="72">
+    <h2 id="lock-title">Enter your PIN</h2>
+    <p id="lock-msg" class="lock-msg" aria-live="polite"></p>
+    <div id="pin-dots" class="pin-dots" role="status"></div>
+    <input id="pin-input" class="vh" type="password" inputmode="numeric" autocomplete="off" aria-hidden="true" tabindex="-1">
+    <div id="keypad" class="keypad">
+      <button type="button" data-k="1">1</button><button type="button" data-k="2">2</button><button type="button" data-k="3">3</button>
+      <button type="button" data-k="4">4</button><button type="button" data-k="5">5</button><button type="button" data-k="6">6</button>
+      <button type="button" data-k="7">7</button><button type="button" data-k="8">8</button><button type="button" data-k="9">9</button>
+      <button type="button" data-k="del" aria-label="Erase last number" class="k-fn">⌫</button><button type="button" data-k="0">0</button><button type="button" data-k="ok" class="k-ok" aria-label="OK">OK</button>
+    </div>
+    <div class="lock-links">
+      <button type="button" id="lock-cancel" class="linkish">Back to cover</button>
+      <button type="button" id="lock-forgot" class="linkish">Forgot PIN?</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OPEN BOOK ============ -->
+<div id="book" class="book" hidden>
+  <header class="topbar">
+    <button type="button" id="btn-back" class="icon-btn" aria-label="Back"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+    <button type="button" id="btn-home" class="icon-btn" aria-label="Front of book"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg></button>
+    <div class="tb-title" id="tb-title">My Business Book</div>
+    <span id="net" class="net on" role="status"></span>
+    <button type="button" id="btn-search" class="icon-btn" aria-label="Search"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></button>
+    <button type="button" id="btn-bell" class="icon-btn" aria-label="Reminders"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><span id="bell-badge" class="bell-badge" hidden>0</span></button>
+    <button type="button" id="btn-lock" class="icon-btn" aria-label="Lock book"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></button>
+  </header>
+  <div class="book-body">
+    <nav id="tabs" class="tabs" aria-label="Book sections"></nav>
+    <main id="page" class="page">
+      <div class="page-inner">
+        <div id="view" class="view" tabindex="-1"></div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<div id="modal-root"></div>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div id="print-area" aria-hidden="true"></div>
+<noscript><p style="padding:20px;font:18px sans-serif">This book needs JavaScript turned on.</p></noscript>
+
+<script src="js/native.js" defer></script>
+<script src="js/store.js" defer></script>
+<script src="js/calc.js" defer></script>
+<script src="js/ui-core.js" defer></script>
+<script src="js/fields.js" defer></script>
+<script src="js/pdf.js" defer></script>
+<script src="js/sections.js" defer></script>
+<script src="js/app.js" defer></script>
+</body>
+</html>
